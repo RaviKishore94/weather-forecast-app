@@ -1,0 +1,31 @@
+<br/>
+    <h5><a href="#!/">Back to Search</a></h5>
+<br/>
+<h4>Forecast for {{ weatherResult.city.name }}</h4>
+<hr/> 
+Results: <a href="#!/forecast/2" ng-class="{ 'text-light bg-primary': numberOfResults === '2' }">2</a> | 
+        <a href="#!/forecast/5" ng-class="{ 'text-light bg-primary': numberOfResults === '5' }">5</a> | 
+        <a href="#!/forecast/10" ng-class="{ 'text-light bg-primary': numberOfResults === '10' }">10</a>
+<hr/>
+
+<!-- <div ng-repeat="weather in weatherResult.list"> 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">{{ formatDate(weather.dt) | date: 'MMM d, y hh:mm:ss a'}}</h4>
+                </div>
+                <div class="card-body">
+                    Temperature: {{ convertToCelcius(weather.main.temp) }} C
+                </div>
+                <div class="card-body">
+                    <small>{{ weather.weather[0].description }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="list-group-item list-group-item-action" ng-repeat="weather in weatherResult.list">
+    <weather-report weather-result='weather' standard-celcius-temp='convertToCelcius(kelvinTemp)' standard-date-format='formatDate(dateValue)' required-date-format='MMM d, y hh:mm:ss a'></weather-report>
+</div>
